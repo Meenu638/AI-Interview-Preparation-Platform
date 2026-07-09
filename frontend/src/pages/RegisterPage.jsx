@@ -12,19 +12,28 @@ const RegisterPage = () => {
   const [loading, setLoading] = useState(false);
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
-  const onSubmit = async (values) => {
-     alert("Submit clicked");
-    setLoading(true);
-    try {
-      await registerUser({ name: values.name, email: values.email, password: values.password });
-      navigate('/dashboard');
-    } catch (err) {
-      toast.error(err.response?.data?.message || 'Registration failed. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
+  // const onSubmit = async (values) => {
+  //    alert("Submit clicked");
+  //   setLoading(true);
+  //   try {
+  //     await registerUser({ name: values.name, email: values.email, password: values.password });
+  //     navigate('/dashboard');
+  //   } catch (err) {
+  //     toast.error(err.response?.data?.message || 'Registration failed. Please try again.');
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
+  <form
+  onSubmit={(e) => {
+    e.preventDefault();
+    alert("FORM SUBMITTED");
+  }}
+  className="space-y-4"
+>
+  
+</form>
   return (
     <div>
       <h1 className="text-2xl font-display font-bold text-center mb-1">Create your account</h1>
