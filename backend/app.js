@@ -14,7 +14,7 @@ const app = express();
 app.use(helmet());
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: process.env.CLIENT_URL || 'https://frontend-2xd3pduiu-meenu638s-projects.vercel.app/',
     credentials: true,
   })
 );
