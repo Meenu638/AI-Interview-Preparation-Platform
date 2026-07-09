@@ -13,6 +13,7 @@ const RegisterPage = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
   const onSubmit = async (values) => {
+     alert("Submit clicked");
     setLoading(true);
     try {
       await registerUser({ name: values.name, email: values.email, password: values.password });
