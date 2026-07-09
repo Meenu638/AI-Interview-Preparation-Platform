@@ -7,6 +7,8 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
+console.log("API URL:", import.meta.env.VITE_API_BASE_URL);
+
 let accessToken = null;
 let isRefreshing = false;
 let refreshQueue = [];
