@@ -12,12 +12,19 @@ const { globalLimiter } = require('./middlewares/rateLimiter.middleware');
 const app = express();
 
 app.use(helmet());
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL,
-    credentials: true,
-  })
-);
+
+const allowedOrigins = [
+  'https://frontend-two-tan-16.vercel.app',
+  process.env.CLIENT_URL,
+  'http://localhost:5173',
+  'http://localhost:3000'
+].filter(Boolean);
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true
+}));
+
 
 app.use(compression());
 app.use(express.json({ limit: '2mb' }));

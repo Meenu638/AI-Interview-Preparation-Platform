@@ -38,7 +38,8 @@ const logout = asyncHandler(async (req, res) => {
 });
 
 const forgotPassword = asyncHandler(async (req, res) => {
-  await authService.forgotPassword(req.body.email, process.env.CLIENT_URL);
+  const clientUrl = process.env.CLIENT_URL || 'https://frontend-two-tan-16.vercel.app';
+  await authService.forgotPassword(req.body.email, clientUrl);
   new ApiResponse(200, 'If that email exists, a reset link has been sent.').send(res);
 });
 
